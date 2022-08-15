@@ -8,3 +8,9 @@ plugins {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    koin_version = "3.2.0"
+    lifecycle_version = "2.5.1"
+    navigation_version = "2.5.1"
+}
