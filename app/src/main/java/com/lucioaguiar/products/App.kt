@@ -10,27 +10,15 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
         loadKoin()
     }
 
-
     private fun loadKoin() {
-
         startKoin {
             androidLogger()
             androidContext(this@App)
             modules(appModule)
         }
-
-//        startKoin(this,
-//            listOf(mNetworkModules,
-//                mViewModels,
-//                mRepositoryModules,
-//                mUseCaseModules,
-//                mLocalModules)
-//
-//        )
     }
 
 }

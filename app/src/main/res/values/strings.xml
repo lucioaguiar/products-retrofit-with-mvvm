@@ -7,4 +7,11 @@
     <string name="email">Email</string>
     <string name="password">Senha</string>
     <string name="register_now">Novo por aqui? Cadastre-se agora</string>
+    <string name="registration">Cadastro</string>
+    <string name="register">Cadastrar</string>
+    <string name="name">Nome</string>
+    <string name="required_field">Campo obrigatório</string>
+    <string name="my_products">Meu produtos</string>
+    <string name="logout">logout</string>
+    <string name="create_new_product">Criar novo produto</string>
 </resources>

@@ -1,13 +1,53 @@
 package com.lucioaguiar.products.ui.auth
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.lucioaguiar.products.di.HelloRepository
+import com.lucioaguiar.products.data.models.SessionJWT
+import com.lucioaguiar.products.data.models.User
+import com.lucioaguiar.products.data.repositories.AuthRepository
+import com.lucioaguiar.products.util.UiState
 
-class AuthViewModel(val helloRepository: HelloRepository) : ViewModel() {
+class AuthViewModel(val repository: AuthRepository) : ViewModel() {
 
+    private val _register = MutableLiveData<UiState<String>>()
+    val register: LiveData<UiState<String>> = _register
 
-    fun say(){
-        helloRepository.giveHello()
+    private val _login = MutableLiveData<UiState<String>>()
+    val login: LiveData<UiState<String>> = _login
+
+    fun register(
+        name: String,
+        email: String,
+        password: String
+    ) {
+        _register.value = UiState.Loading
+        repository.registerUser(
+            name,
+            email,
+            password
+        ) { _register.value = it }
+    }
+
+    fun login(
+        email: String,
+        password: String
+    ) {
+        _login.value = UiState.Loading
+        repository.loginUser(
+            email,
+            password
+        ){
+            _login.value = it
+        }
+    }
+
+    fun getSession(result: (SessionJWT?) -> Unit){
+        repository.getSession(result)
+    }
+
+    fun logout(sessionJWT: SessionJWT, result: () -> Unit){
+        repository.logout(sessionJWT, result)
     }
 
 }
