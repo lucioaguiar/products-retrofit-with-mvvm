@@ -20,4 +20,6 @@
     <string name="image">image</string>
     <string name="description">Descrição</string>
     <string name="more_vertical">Menu Vertical</string>
+    <string name="edit">Editar</string>
+    <string name="delete">Deletar</string>
 </resources>

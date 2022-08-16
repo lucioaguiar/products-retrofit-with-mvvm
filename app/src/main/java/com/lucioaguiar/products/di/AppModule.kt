@@ -5,8 +5,11 @@ import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.lucioaguiar.products.data.repositories.AuthRepository
 import com.lucioaguiar.products.data.repositories.AuthRepositoryImp
+import com.lucioaguiar.products.data.repositories.ProductRepository
+import com.lucioaguiar.products.data.repositories.ProductRepositoryImp
 import com.lucioaguiar.products.rest.RetrofitService
 import com.lucioaguiar.products.ui.auth.AuthViewModel
+import com.lucioaguiar.products.ui.products.ProductViewModel
 import com.lucioaguiar.products.util.SharedPreferenceTypes
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -18,5 +21,7 @@ val appModule = module {
     single<SharedPreferences> { androidContext().getSharedPreferences(SharedPreferenceTypes.CONFIG, Context.MODE_PRIVATE) }
     single { Gson() }
     single<AuthRepository> { AuthRepositoryImp(get(), get(), get()) }
+    single<ProductRepository> { ProductRepositoryImp(get()) }
     viewModel { AuthViewModel(get()) }
+    viewModel { ProductViewModel(get()) }
 }
