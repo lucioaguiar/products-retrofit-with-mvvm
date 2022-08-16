@@ -14,4 +14,10 @@
     <string name="my_products">Meu produtos</string>
     <string name="logout">logout</string>
     <string name="create_new_product">Criar novo produto</string>
+    <string name="initial_image">Imagem inicial</string>
+    <string name="no_products">Você ainda não possui nenhum produto cadastrado</string>
+    <string name="register_product_now">Cadastrar agora</string>
+    <string name="image">image</string>
+    <string name="description">Descrição</string>
+    <string name="more_vertical">Menu Vertical</string>
 </resources>

@@ -1,13 +1,11 @@
 package com.lucioaguiar.products.data.repositories
 
 import android.content.SharedPreferences
-import android.util.Log
 import com.google.gson.Gson
 import com.lucioaguiar.products.data.models.SessionJWT
-import com.lucioaguiar.products.data.models.User
+import com.lucioaguiar.products.rest.RetrofitService
 import com.lucioaguiar.products.util.SharedPreferenceConstants
 import com.lucioaguiar.products.util.UiState
-import com.ocanha.mvvmrecyclerviewcomretrofitemkotlin.rest.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
