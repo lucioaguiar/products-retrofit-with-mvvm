@@ -26,6 +26,9 @@ interface RetrofitService {
     @GET("products")
     fun getAllProducts(@Query("token") token: String): Call<List<Product>>
 
+    @DELETE("product/{id}")
+    fun delete(@Path("id") id: Int, @Query("token") token: String ): Call<Product>
+
     companion object {
 
         private val retrofitService: RetrofitService by lazy {

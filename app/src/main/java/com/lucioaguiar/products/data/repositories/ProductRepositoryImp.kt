@@ -9,24 +9,39 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ProductRepositoryImp(
-    val retrofitService: RetrofitService) : ProductRepository{
+    val retrofitService: RetrofitService) : ProductRepository {
 
     override fun getProducts(sessionJWT: SessionJWT, result: (UiState<List<Product>>) -> Unit) {
-        retrofitService.getAllProducts(sessionJWT.authorisation.token).enqueue(object : Callback<List<Product>>{
-            override fun onResponse(call: Call<List<Product>>, response: Response<List<Product>>) {
-                response.body()?.let {
-                    result.invoke(UiState.Success(it))
+        retrofitService.getAllProducts(sessionJWT.authorisation.token)
+            .enqueue(object : Callback<List<Product>> {
+                override fun onResponse(
+                    call: Call<List<Product>>,
+                    response: Response<List<Product>>
+                ) {
+                    response.body()?.let {
+                        result.invoke(UiState.Success(it))
+                    }
                 }
-            }
-            override fun onFailure(call: Call<List<Product>>, t: Throwable) {
-                result.invoke(UiState.Failure("getProducts failed"))
-            }
-        })
+
+                override fun onFailure(call: Call<List<Product>>, t: Throwable) {
+                    result.invoke(UiState.Failure("getProducts failed"))
+                }
+            })
     }
 
-    override fun delete(id: Int, result: () -> Unit) {
+    override fun delete(id: Int, sessionJWT: SessionJWT, result: (UiState<Product>) -> Unit) {
+        retrofitService.delete(id, sessionJWT.authorisation.token)
+            .enqueue(object : Callback<Product> {
+                override fun onResponse(call: Call<Product>, response: Response<Product>) {
+                    response.body()?.let {
+                        result.invoke(UiState.Success(it))
+                    }
+                }
 
-
-    }
+                override fun onFailure(call: Call<Product>, t: Throwable) {
+                    result.invoke(UiState.Failure("Could not delete the product"))
+                }
+            })
+        }
 
 }

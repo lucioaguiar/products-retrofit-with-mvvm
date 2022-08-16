@@ -44,6 +44,11 @@ class ProductListingFragment : Fragment() {
                 val bundle = bundleOf(EntityNamesConstants.PRODUCT to product)
             }
             TypesProductsActionsEnum.DELETE -> {
+                authViewModel.getSession { sessionJWT ->
+                    if(sessionJWT != null){
+                        viewModel.delete(product.id, sessionJWT)
+                    }
+                }
             }
         }
     }
@@ -66,6 +71,22 @@ class ProductListingFragment : Fragment() {
                             binding.rvProductList.hide()
                             binding.llNoProduct.show()
                         }
+                    }
+                }
+            }
+        })
+
+        viewModel.delete.observe(viewLifecycleOwner, Observer { state ->
+            when(state){
+                is UiState.Loading -> {
+                }
+                is UiState.Failure -> {
+                    toast(state.error)
+                }
+                is UiState.Success -> {
+                    state.data.let { product ->
+                        toast(getString(R.string.product_deleted))
+                        refreshProducts()
                     }
                 }
             }
@@ -97,13 +118,17 @@ class ProductListingFragment : Fragment() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
+    private fun refreshProducts(){
         authViewModel.getSession { sessionJWT ->
             if (sessionJWT != null) {
                 viewModel.getProducts(sessionJWT)
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refreshProducts()
     }
 
 }

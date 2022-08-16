@@ -6,6 +6,6 @@ import com.lucioaguiar.products.util.UiState
 
 interface ProductRepository {
     fun getProducts(sessionJWT: SessionJWT, result: (UiState<List<Product>>) -> Unit)
-    fun delete(id: Int, result: () -> Unit)
+    fun delete(id: Int, sessionJWT: SessionJWT, result: (UiState<Product>) -> Unit)
 
 }
