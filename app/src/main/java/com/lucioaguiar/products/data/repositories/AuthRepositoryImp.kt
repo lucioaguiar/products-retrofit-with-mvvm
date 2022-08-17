@@ -53,11 +53,11 @@ class AuthRepositoryImp(
     }
 
     override fun getSession(result: (SessionJWT?) -> Unit) {
-        val user_str = sharedPreferences.getString(SharedPreferenceConstants.USER_SESSION, null)
-        if (user_str == null){
+        val userStr = sharedPreferences.getString(SharedPreferenceConstants.USER_SESSION, null)
+        if (userStr == null){
             result.invoke(null)
         }else{
-            val sessionJWT = gson.fromJson(user_str, SessionJWT::class.java)
+            val sessionJWT = gson.fromJson(userStr, SessionJWT::class.java)
             result.invoke(sessionJWT)
         }
     }
@@ -71,10 +71,7 @@ class AuthRepositoryImp(
                 sharedPreferences.edit().putString(SharedPreferenceConstants.USER_SESSION,null).apply()
                 result.invoke()
             }
-
-            override fun onFailure(call: Call<Response<String>>, t: Throwable) {
-
-            }
+            override fun onFailure(call: Call<Response<String>>, t: Throwable) {}
 
         })
     }

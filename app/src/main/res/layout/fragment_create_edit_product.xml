@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.products.CreateEditProductFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minWidth="300dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/orange"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="10dp">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/orange"
+                        app:srcCompat="@drawable/ic_orange_icon" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/create_product"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/name" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:boxBackgroundMode="outline"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="15"
+                        app:hintEnabled="false">
+
+                        <EditText
+                            android:id="@+id/edName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shape_edit_text"
+                            android:ems="10"
+                            android:hint="@string/name_field_hint"
+                            android:importantForAutofill="no"
+                            android:inputType="text" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/description" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:boxBackgroundMode="outline"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="170"
+                        app:hintEnabled="false">
+
+                        <EditText
+                            android:id="@+id/edDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shape_edit_text"
+                            android:gravity="start|top"
+                            android:hint="@string/description_field_hint"
+                            android:importantForAutofill="no"
+                            android:inputType="textMultiLine"
+                            android:lines="2" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/image_hint" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:boxBackgroundMode="outline"
+                        app:hintEnabled="false">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                android:id="@+id/ivImage"
+                                android:layout_width="110dp"
+                                android:layout_height="110dp"
+                                android:contentDescription="@string/image"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_orange_icon" />
+
+                            <ProgressBar
+                                android:id="@+id/pbImage"
+                                style="?android:attr/progressBarStyle"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/ivImage" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnCancel"
+                            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Flush"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cancel"
+                            android:textAllCaps="false" />
+
+                        <Button
+                            android:id="@+id/btnSave"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/save"
+                            android:textAllCaps="false"
+                            tools:ignore="ButtonStyle" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

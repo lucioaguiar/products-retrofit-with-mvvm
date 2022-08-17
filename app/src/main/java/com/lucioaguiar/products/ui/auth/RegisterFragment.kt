@@ -38,16 +38,16 @@ class RegisterFragment : Fragment() {
             when(state) {
                 is UiState.Loading -> {
                     binding.pbRegister.show()
-                    binding.btRegister.setText("")
+                    binding.btRegister.text = ""
                 }
                 is UiState.Failure -> {
                     binding.pbRegister.hide()
-                    binding.btRegister.setText(getString(R.string.login))
+                    binding.btRegister.text = getString(R.string.login)
                     toast(state.error)
                 }
                 is UiState.Success -> {
                     binding.pbRegister.hide()
-                    binding.btRegister.setText(getString(R.string.login))
+                    binding.btRegister.text = getString(R.string.login)
                     toast(state.data)
                     findNavController().navigate(R.id.action_registerFragment_to_home_navigation)
                 }
@@ -69,6 +69,10 @@ class RegisterFragment : Fragment() {
 
     fun validation(binding: FragmentRegisterBinding): Boolean {
         var isValid = true
+
+        binding.tilName.error = ""
+        binding.edEmail.error = ""
+        binding.tilPassword.error = ""
 
         if (binding.edName.text.isNullOrEmpty()){
             isValid = false

@@ -17,3 +17,9 @@ enum class TypesProductsActionsEnum {
     EDIT,
     DELETE
 }
+
+enum class TypesActionsEnum {
+    CREATE,
+    EDIT
+}
+

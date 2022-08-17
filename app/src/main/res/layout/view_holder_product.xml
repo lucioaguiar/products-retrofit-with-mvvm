@@ -11,10 +11,11 @@
         android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="2dp"
-            app:cardElevation="8dp"
+            app:cardElevation="0dp"
             app:cardPreventCornerOverlap="false"
             app:cardUseCompatPadding="true"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -23,12 +24,12 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
-                android:background="?android:attr/selectableItemBackground"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="?android:attr/selectableItemBackground"
+                android:baselineAligned="false"
                 android:gravity="center"
-                android:orientation="horizontal"
-                android:baselineAligned="false">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/ivImage"
@@ -41,55 +42,55 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:orientation="vertical"
                     android:paddingHorizontal="6dp"
-                    android:paddingVertical="3dp"
-                    android:orientation="vertical">
+                    android:paddingVertical="3dp">
 
                     <TextView
                         android:id="@+id/textView8"
-                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/name"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/tvName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:text="Abacate"
-                        android:textSize="16sp"
                         android:fontFamily="sans-serif-black"
                         android:textColor="@color/green_700"
+                        android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Abacate" />
 
                     <TextView
                         android:id="@+id/textView10"
-                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/description"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/tvDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:text="Primeiro produto teste"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Primeiro produto teste" />
 
                     <TextView
                         android:id="@+id/textView11"
-                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/image"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 
@@ -104,13 +105,22 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/ic_more_vert_24"
-                        android:contentDescription="@string/more_vertical" />
+                        android:contentDescription="@string/more_vertical"
+                        app:srcCompat="@drawable/ic_more_vert_24" />
                 </LinearLayout>
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightGray"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/cardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"></LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

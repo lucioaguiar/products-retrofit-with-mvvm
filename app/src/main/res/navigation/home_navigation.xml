@@ -15,5 +15,21 @@
             app:destination="@id/loginFragment"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_productListingFragment_to_createEditProductFragment"
+            app:destination="@id/createEditProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createEditProductFragment"
+        android:name="com.lucioaguiar.products.ui.products.CreateEditProductFragment"
+        android:label="CreateEditProductFragment"
+        tools:layout="@layout/fragment_create_edit_product">
+
+        <action
+            android:id="@+id/action_createEditProductFragment_to_productListingFragment"
+            app:destination="@id/productListingFragment"
+            app:popUpTo="@id/productListingFragment"
+            app:popUpToInclusive="true" />
+
     </fragment>
 </navigation>

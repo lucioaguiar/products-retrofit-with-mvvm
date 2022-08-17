@@ -38,16 +38,16 @@ class LoginFragment : Fragment() {
             when(state) {
                 is UiState.Loading -> {
                     binding.pbLogin.show()
-                    binding.btLogin.setText("")
+                    binding.btLogin.text = ""
                 }
                 is UiState.Failure -> {
                     binding.pbLogin.hide()
-                    binding.btLogin.setText(getString(R.string.login))
+                    binding.btLogin.text = getString(R.string.login)
                     toast(state.error)
                 }
                 is UiState.Success -> {
                     binding.pbLogin.hide()
-                    binding.btLogin.setText(getString(R.string.login))
+                    binding.btLogin.text = getString(R.string.login)
                     toast(state.data)
                     findNavController().navigate(R.id.action_loginFragment_to_home_navigation)
                 }
@@ -71,6 +71,9 @@ class LoginFragment : Fragment() {
 
     fun validation(binding: FragmentLoginBinding): Boolean {
         var isValid = true
+
+        binding.tilEmail.error = ""
+        binding.tilPassword.error = ""
 
         if (binding.edEmail.text.isNullOrEmpty()){
             isValid = false

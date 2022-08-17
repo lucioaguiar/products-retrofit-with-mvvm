@@ -5,6 +5,7 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
 }
 
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
@@ -15,4 +16,5 @@ ext {
     navigation_version = "2.5.1"
     retrofit_version = "2.9.0"
     glide_version = "4.13.2"
+    imagepicker_version = "2.1"
 }

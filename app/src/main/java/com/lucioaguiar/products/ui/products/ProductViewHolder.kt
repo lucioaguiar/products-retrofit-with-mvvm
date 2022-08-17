@@ -16,16 +16,19 @@ class ProductViewHolder(private val binding: ViewHolderProductBinding) : Recycle
         binding.tvName.text = product.name.toString()
         binding.tvDescription.text = product.description
 
-        product.image?.let { image ->
-            if(image.isNotBlank()){
-                Glide.with(binding.root)
-                    .load(image)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .override(200)
-                    .into(binding.ivImage)
-            }
+        if(!product.image.isNullOrBlank()){
+            Glide.with(binding.root)
+                .load(product.image)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .override(200)
+                .into(binding.ivImage)
+        }else{
+            Glide.with(binding.root)
+                .load(R.drawable.ic_orange_icon)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .override(200)
+                .into(binding.ivImage)
         }
-
 
         itemView.setOnClickListener {
             onActionClicked(TypesProductsActionsEnum.ITEM, product)
@@ -52,6 +55,5 @@ class ProductViewHolder(private val binding: ViewHolderProductBinding) : Recycle
             popup.show()
 
         }
-
     }
 }

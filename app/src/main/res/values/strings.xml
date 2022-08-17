@@ -23,4 +23,12 @@
     <string name="edit">Editar</string>
     <string name="delete">Deletar</string>
     <string name="product_deleted">Product successfully deleted!</string>
+    <string name="orange">Laranja</string>
+    <string name="name_field_hint">Ex: Laranja</string>
+    <string name="description_field_hint">Ex: A laranja é laranja.</string>
+    <string name="image_hint">Imagem (Clique cima para anexar)</string>
+    <string name="create_product">Criar produto</string>
+    <string name="cancel">Cancelar</string>
+    <string name="save">Salvar</string>
+    <string name="limit_max_of_caracter">O limite máximo de caracteres é: %1$d</string>
 </resources>
