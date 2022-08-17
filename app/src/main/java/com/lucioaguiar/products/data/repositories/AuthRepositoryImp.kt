@@ -1,6 +1,7 @@
 package com.lucioaguiar.products.data.repositories
 
 import android.content.SharedPreferences
+import android.util.Log
 import com.google.gson.Gson
 import com.lucioaguiar.products.data.models.SessionJWT
 import com.lucioaguiar.products.rest.RetrofitService
@@ -47,6 +48,7 @@ class AuthRepositoryImp(
 
             }
             override fun onFailure(call: Call<SessionJWT>, t: Throwable) {
+                Log.i("retorno", t.message.toString())
                 result.invoke(UiState.Failure("Failed Login"))
             }
         })

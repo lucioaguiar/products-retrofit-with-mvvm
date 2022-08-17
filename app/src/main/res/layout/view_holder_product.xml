@@ -34,6 +34,7 @@
                 <ImageView
                     android:id="@+id/ivImage"
                     android:layout_width="80dp"
+                    android:layout_marginStart="6dp"
                     android:layout_height="80dp"
                     android:contentDescription="@string/image"
                     tools:srcCompat="@drawable/ic_avocado_icon" />
@@ -43,8 +44,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:paddingHorizontal="6dp"
-                    android:paddingVertical="3dp">
+                    android:paddingStart="6dp"
+                    android:paddingVertical="3dp"
+                    tools:ignore="RtlSymmetry">
 
                     <TextView
                         android:id="@+id/textView8"

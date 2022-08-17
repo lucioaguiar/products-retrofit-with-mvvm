@@ -71,7 +71,7 @@ class RegisterFragment : Fragment() {
         var isValid = true
 
         binding.tilName.error = ""
-        binding.edEmail.error = ""
+        binding.tilEmail.error = ""
         binding.tilPassword.error = ""
 
         if (binding.edName.text.isNullOrEmpty()){

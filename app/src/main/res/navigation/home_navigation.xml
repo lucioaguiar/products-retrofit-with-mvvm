@@ -25,11 +25,7 @@
         android:label="CreateEditProductFragment"
         tools:layout="@layout/fragment_create_edit_product">
 
-        <action
-            android:id="@+id/action_createEditProductFragment_to_productListingFragment"
-            app:destination="@id/productListingFragment"
-            app:popUpTo="@id/productListingFragment"
-            app:popUpToInclusive="true" />
+
 
     </fragment>
 </navigation>

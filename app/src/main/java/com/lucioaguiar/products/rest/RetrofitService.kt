@@ -54,7 +54,7 @@ interface RetrofitService {
         private val retrofitService: RetrofitService by lazy {
 
             val retrofit = Retrofit.Builder()
-                .baseUrl("http://produtos.test/api/")
+                .baseUrl("https://products.lucioaguiar.com/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 

@@ -67,7 +67,6 @@ class CreateEditProductFragment : Fragment() {
                     requireActivity().contentResolver.openInputStream(it1)
                 }
                 iStream?.let {
-                    Log.i("retorno", "parou aqui")
                     val imageBody = RequestBody.create(MediaType.parse("image/*"), it.readBytes())
                     val image = MultipartBody.Part.createFormData("image", "image", imageBody)
 
