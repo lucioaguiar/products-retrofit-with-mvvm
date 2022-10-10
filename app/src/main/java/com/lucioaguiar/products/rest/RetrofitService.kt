@@ -18,7 +18,7 @@ interface RetrofitService {
 
     @FormUrlEncoded
     @POST("login")
-    fun login(@Field("email") email: String, @Field("password") password: String): Call<SessionJWT>
+    suspend fun login(@Field("email") email: String, @Field("password") password: String): SessionJWT
 
     @FormUrlEncoded
     @POST("logout")

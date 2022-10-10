@@ -3,10 +3,12 @@ package com.lucioaguiar.products.ui.auth
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.lucioaguiar.products.data.models.SessionJWT
 import com.lucioaguiar.products.data.models.User
 import com.lucioaguiar.products.data.repositories.AuthRepository
 import com.lucioaguiar.products.util.UiState
+import kotlinx.coroutines.launch
 
 class AuthViewModel(val repository: AuthRepository) : ViewModel() {
 
@@ -34,11 +36,8 @@ class AuthViewModel(val repository: AuthRepository) : ViewModel() {
         password: String
     ) {
         _login.value = UiState.Loading
-        repository.loginUser(
-            email,
-            password
-        ){
-            _login.value = it
+        viewModelScope.launch {
+            _login.value = repository.loginUser(email, password)
         }
     }
 
