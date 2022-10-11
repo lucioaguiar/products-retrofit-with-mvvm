@@ -3,6 +3,9 @@ package com.lucioaguiar.products.rest
 import com.lucioaguiar.products.data.models.Image
 import com.lucioaguiar.products.data.models.Product
 import com.lucioaguiar.products.data.models.SessionJWT
+import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
+import io.reactivex.rxjava3.core.Flowable
+import io.reactivex.rxjava3.core.Observable
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Response
@@ -14,7 +17,7 @@ interface RetrofitService {
 
     @FormUrlEncoded
     @POST("register")
-    fun register(@Field("name") name: String, @Field("email") email: String, @Field("password") password: String): Call<SessionJWT>
+    fun register(@Field("name") name: String, @Field("email") email: String, @Field("password") password: String): Flowable<SessionJWT>
 
     @FormUrlEncoded
     @POST("login")
@@ -56,6 +59,7 @@ interface RetrofitService {
             val retrofit = Retrofit.Builder()
                 .baseUrl("https://products.lucioaguiar.com/api/")
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build()
 
             retrofit.create(RetrofitService::class.java)

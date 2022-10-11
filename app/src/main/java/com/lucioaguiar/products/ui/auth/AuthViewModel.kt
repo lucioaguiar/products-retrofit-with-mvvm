@@ -1,5 +1,6 @@
 package com.lucioaguiar.products.ui.auth
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -28,7 +29,18 @@ class AuthViewModel(val repository: AuthRepository) : ViewModel() {
             name,
             email,
             password
-        ) { _register.value = it }
+        ).subscribe({ response ->
+            _register.value = UiState.Success("sucesso!")
+//            mNews.value = Data(responseType = Status.SUCCESSFUL, data = response)
+        }, { error ->
+            _register.value = UiState.Failure("Erro!")
+//            mNews.value = Data(responseType = Status.ERROR, error = Error(error.message))
+        }, {
+//            Log.d(TAG, "On Complete Called")
+        })
+
+
+//        { _register.value = it }
     }
 
     fun login(
